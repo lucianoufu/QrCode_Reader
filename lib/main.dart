@@ -9,17 +9,46 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       title: 'Qr Code Reader',
+      
+      //Dark theme para celulares com dark mode nativo
+      //darkTheme: ThemeData.dark(),
+
+      //Dark theme para celulares sem suporte para dark mode nativo
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        //accentColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      darkTheme: ThemeData.dark(),
       home: Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Botão para leitura do qrCode"),
+            children: [
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.tealAccent,
+                  onPrimary: Colors.black,
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                ),
+                label: const Text('Ler QR Code'),
+                icon: const Icon(Icons.qr_code_2),
+                onPressed: () { 
+                  print('Botão QR Code precionado');
+                }
+              ),
+
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.tealAccent,
+                  onPrimary: Colors.black,
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                ),
+                label: const Text('Ler codigo de barras'),
+                icon: const Icon(Icons.qr_code_2),
+                onPressed: () { 
+                  print('Botão Código de barra precionado precionado');
+                }
+              )
             ],
           ),
         ),
